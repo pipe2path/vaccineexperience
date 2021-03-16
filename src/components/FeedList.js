@@ -21,9 +21,9 @@ class FeedList extends Component {
                             <div className="content">
                                 <div className="summary">
                                     <a className="user">
-                                        {feed.userName} 
+                                        {feed.userName}
                                     </a>
-                                    <ReactTimeAgo className="date right floated ui" date={this.renderDate(feed.dateCreated)} locale="en-US" />
+                                    <ReactTimeAgo className="right floated date" date={this.renderDate(feed.dateCreated)} locale="en-US" />
                                 </div>
                                 <div>
                                     {feed.cityName}
@@ -55,7 +55,10 @@ class FeedList extends Component {
     }
 
     render() {
-        console.log(this.props);
+        if (!this.props.feeds) {
+            return <div>Loading...</div>;
+        }
+        
         return (
             <div>
                 <div>{this.renderList()}</div>
@@ -66,7 +69,6 @@ class FeedList extends Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state);
     return { feeds: state.feeds}
 }
 
