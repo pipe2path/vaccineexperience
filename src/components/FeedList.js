@@ -3,22 +3,30 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchFeed } from '../actions';
 import { selectCity } from '../actions';
+import ReactTimeAgo from 'react-time-ago';
 
 class FeedList extends Component {
+    
+    renderDate = (dateCreated) => {
+        let date = new Date(dateCreated);
+        return date.toString();
+    }
+
     renderList= () => {
         return this.props.feeds.map((feed) => {
             return (
                 <div className="column">
-                    <div className="ui feed" key={feed.userId}>
+                    <div className="ui feed" key={feed.userId}> 
                         <div className="event">
                             <div className="content">
                                 <div className="summary">
                                     <a className="user">
-                                        {feed.userName}  
+                                        {feed.userName} 
                                     </a>
+                                    <ReactTimeAgo className="date right floated ui" date={this.renderDate(feed.dateCreated)} locale="en-US" />
                                 </div>
                                 <div>
-                                {feed.cityName}
+                                    {feed.cityName}
                                 </div>
                                 <div className="extra text">
                                     {feed.content}
