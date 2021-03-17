@@ -47,7 +47,7 @@ class FeedCreate extends React.Component {
                     <div class="field">
                         <label>Enter Comments</label>
                         <div>
-                            <Field name="comments" component="textarea" /> 
+                            <Field name="comments" component="textarea" rows="4"/> 
                         </div>
                     </div>
                     <button className="ui button primary">Submit</button>
