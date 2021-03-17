@@ -26,20 +26,33 @@ class FeedCreate extends React.Component {
         );    
     }
 
-
     onSubmit = (formValues) => {
+        console.log(formValues);
         this.props.createPost(formValues);
     }
     
     render() {
         console.log(this.props);
         return (
-            <form onSubmit={this.props.handleSubmit(this.onSubmit)} className="ui form error">
-                <Field name="name" label="Enter Your Name" component={this.renderInput} label="Enter Name" />
-                <Field name="city" label="Enter Your City" component={this.renderInput} label="Enter City" />
-                <Field name="comments" label="Enter Your Comments" component={this.renderInput} label="Enter Comments" />
-                <button className="ui button primary">Submit</button>
-            </form>
+            <div>
+                <form onSubmit={this.props.handleSubmit(this.onSubmit)} className="ui form error">
+                    <div class="field">
+                        <label>Enter Name</label>
+                        <Field name="name" component={this.renderInput} />
+                    </div>
+                    <div class="field">
+                        <label>Enter City</label>
+                        <Field name="city" component={this.renderInput} />
+                    </div>
+                    <div class="field">
+                        <label>Enter Comments</label>
+                        <div>
+                            <Field name="comments" component="textarea" /> 
+                        </div>
+                    </div>
+                    <button className="ui button primary">Submit</button>
+                </form>                
+            </div>    
         )
     }    
 };
