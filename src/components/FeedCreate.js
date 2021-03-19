@@ -45,6 +45,10 @@ class FeedCreate extends React.Component {
                         <Field name="city" component={this.renderInput} />
                     </div>
                     <div class="field">
+                        <label>Enter Facility Name</label>
+                        <Field name="facility" component={this.renderInput} />
+                    </div>
+                    <div class="field">
                         <label>Enter Comments</label>
                         <div>
                             <Field name="comments" component="textarea" rows="4"/> 
