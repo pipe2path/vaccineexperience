@@ -12,6 +12,10 @@ class FeedList extends Component {
         return date.toString();
     }
 
+    renderCityAndFacility = (city, facility) => {
+        return facility ? city + ' - ' + facility : city; 
+    }
+
     renderList= () => {
         return this.props.feeds.map((feed) => {
             return (
@@ -26,7 +30,7 @@ class FeedList extends Component {
                                     <ReactTimeAgo className="right floated date" date={this.renderDate(feed.dateCreated)} locale="en-US" />
                                 </div>
                                 <div>
-                                    {feed.cityName}
+                                    {this.renderCityAndFacility(feed.cityName, feed.facility)}
                                 </div>
                                 <div className="extra text">
                                     {feed.content}
